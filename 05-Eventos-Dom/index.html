@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Eventos</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111827;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #painel {
+            text-align: center;
+        }
+
+        #area {
+            background-color: #3700ff;
+            color: #fff;
+            width: 300px;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main id="painel">
+        <h1>Eventos JavaScript</h1>
+
+        <div id="area">Interaja...</div>
+
+        <p id="mensagem">Passe o mouse pela área!</p>
+        <p id="contador">Cliques: 0</p>
+
+        <button id="reiniciar">Reiniciar</button>
+    </main>
+
+    <script>
+        let area = document.querySelector("#area");
+        let mensagem = document.querySelector("#mensagem");
+        let contador = document.querySelector("#contador");
+        let reiniciar = document.querySelector("#reiniciar");
+
+        let cliques = 0;
+
+        area.addEventListener("mouseenter", entrar);
+        area.addEventListener("mouseleave", sair);
+        area.addEventListener("click", clicar);
+        reiniciar.addEventListener("click", resetar);
+
+        function clicar() {
+          cliques = cliques + 1;
+
+            area.innerText = "Você clicou!";
+            area.style.backgroundColor = "blue";
+
+            contador.innerText = "Cliques: " + cliques;
+            mensagem.innerText = "Continue clicando!";
+
+          if (cliques === 10) {
+             mensagem.textContent =
+               "Parabéns, você chegou a 10 cliques!";
+
+             area.style.backgroundColor = "green";
+          area.innerText = "Você venceu!";
+    }
+}
+
+
+        function entrar() {
+            area.innerText = "Você entrou!";
+            area.style.backgroundColor = "red";
+            mensagem.innerText = "Mouse dentro da área.";
+        }
+
+        function sair() {
+            area.innerText = "Interaja...";
+            area.style.backgroundColor = "#3514ad";
+            mensagem.innerText = "Mouse fora da área.";
+        }
+
+        if (cliques === 10) {
+            document.getElementById("mensagem").textContent = "Parabéns, você chegou a 10 cliques"
+        }
+
+        function resetar() {
+            cliques = 0;
+
+            area.innerText = "Interaja...";
+            area.style.backgroundColor = "#3700ff";
+
+            contador.innerText = "Cliques: 0";
+            mensagem.innerText = "Experiência reiniciada!";
+        }
+    </script>
+
+</body>
+</html>

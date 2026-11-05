@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Valores</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #141e30, #243b55);
+        }
+
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #243b55;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .descricao {
+            color: #777;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 17px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #4776e6;
+            box-shadow: 0 0 8px rgba(71, 118, 230, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4776e6, #8e54e9);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(71, 118, 230, 0.35);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #res {
+            margin-top: 22px;
+            padding: 15px;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f6fc;
+            border-radius: 10px;
+            color: #243b55;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Somando Valores</h1>
+
+        <p class="descricao">
+            Digite dois números e descubra o resultado da soma.
+        </p>
+
+        <input
+            type="number"
+            id="numero1"
+            step="any"
+            placeholder="Primeiro número"
+        >
+
+        <input
+            type="number"
+            id="numero2"
+            step="any"
+            placeholder="Segundo número"
+        >
+
+        <button id="botao">Calcular soma</button>
+
+        <div id="res" aria-live="polite">
+            O resultado aparecerá aqui.
+        </div>
+
+    </main>
+
+    <script>
+        let numero1 = document.querySelector("#numero1");
+        let numero2 = document.querySelector("#numero2");
+        let botao = document.querySelector("#botao");
+        let res = document.querySelector("#res");
+
+        botao.addEventListener("click", somar);
+
+        function somar() {
+
+            if (numero1.value === "" || numero2.value === "") {
+                res.innerText = "Preencha os dois números!";
+                res.style.color = "red";
+                return;
+            }
+
+            let n1 = Number(numero1.value);
+            let n2 = Number(numero2.value);
+
+            let resultado = n1 + n2;
+
+            res.innerText = n1 + " + " + n2 + " = " + resultado;
+
+            if (resultado > 100.) {
+                res.innerText +=
+                    " — Excelente! O resultado passou de 100!";
+                res.style.color = "green";
+            } else {
+                res.style.color = "blue";
+            }
+        }
+    </script>
+
+</body>
+</html>
