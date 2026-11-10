@@ -14,28 +14,50 @@
 //  console.log(=========================)
 
 
+// const prompt = require('prompt-sync')()
+
+// let viagens = Number(prompt("Quantas viagens deseja registrar? "))
+
+// let somaConsumo = 0
+
+// for (let i = 1; i <= viagens; i++) {
+
+//     console.log(`Viagem ${i}`)
+
+//     let km = Number(prompt("Km percorridos: "))
+//     let litros = Number(prompt("Litros consumidos na viagem: "))
+
+//     let consumo = km / litros
+
+//     console.log(`Consumo da viagem: ${consumo.toFixed(2)} km/l`)
+
+//     somaConsumo += consumo
+
+//     console.log("=========================")
+// }
+
+// let media = somaConsumo / viagens
+
+// console.log(`Média de consumo: ${media.toFixed(2)} km/l`) 
+
 const prompt = require('prompt-sync')()
 
-let viagens = Number(prompt("Quantas viagens deseja registrar? "))
-
-let somaConsumo = 0
+let viagens = Number(prompt('Quantas viagens deseja registrar? '))
+let somaTotal = 0
 
 for (let i = 1; i <= viagens; i++) {
+    // perguntar km percorridos
+    let kmPercorridos = Number(prompt("Km percorridos: "))
 
-    console.log(`Viagem ${i}`)
+    // perguntar litros consumidos
+    let litrosConsumidos = Number(prompt("Litros consumidos na viagem: "))
 
-    let km = Number(prompt("Quilômetros percorridos na viagem: "))
-    let litros = Number(prompt("Litros consumidos na viagem: "))
+    // calculo
+    let calculo = kmPercorridos / litrosConsumidos
 
-    let consumo = km / litros
-
-    console.log(`Consumo da viagem: ${consumo.toFixed(2)} km/l`)
-
-    somaConsumo += consumo
-
-    console.log("=========================")
+    somaTotal += calculo
 }
 
-let media = somaConsumo / viagens
+let consumoMedio = somaTotal / viagens
 
-console.log(`Média de consumo: ${media.toFixed(2)} km/l`) 
+console.log(`Consumo medio foi de ${consumoMedio} km/L`)
