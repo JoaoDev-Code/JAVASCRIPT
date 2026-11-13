@@ -1,3 +1,10 @@
+// Crie um programa que leia o sexo e a idade de várias pessoas. O programa vai 
+// perguntar se o usuário quer continuar ou não a cada pessoa. No final, mostre: 
+// a) qual é a maior idade lida 
+// b) quantos homens foram cadastrados 
+// c) qual é a idade da mulher mais jovem 
+// d) qual é a média de idade entre os homens 
+
 const prompt = require('prompt-sync')()
 
 let maiorIdade = 0
@@ -13,18 +20,15 @@ while (flag) {
     let idade = Number(prompt('Digite a idade: '))
     let sexo = prompt('Digite o sexo [M/F]: ').toUpperCase()
 
-    // Maior idade
     if (idade > maiorIdade) {
         maiorIdade = idade
     }
 
-    // Homens
     if (sexo == 'M') {
         homens++
         somaIdadeHomens += idade
     }
 
-    // Mulheres
     if (sexo == 'F') {
         totalMulheres++
 
