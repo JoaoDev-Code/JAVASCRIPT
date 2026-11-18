@@ -1,0 +1,1 @@
+produtos[i].prec
