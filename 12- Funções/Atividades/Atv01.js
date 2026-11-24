@@ -4,19 +4,61 @@
 // depois da escolha do usuarios perguntar dois valores
 // valores que o usuarios perguntou passar como argumento
 
-let alunos = []
+                                                        
 
-let quantidade = Number(prompt("Quantos alunos deseja cadastrar?"))
 
-for (let i = 0; i < quantidade; i++) {
-    let nome = prompt("Digite o nome do aluno: ")
+const prompt = require("prompt-sync")();
 
-    alunos.push(nome);
+console.log("=== OPÇÕES ===");
 
+console.log("1 - +");
+console.log("2 - -");
+console.log("3 - *");
+console.log("4 - /");
+
+// Criando as funções
+function soma(a, b) {
+    return a + b;
 }
 
-console.log("Alunos cadastrados: ", alunos)
+function subtracao(a, b) {
+    return a - b;
+}
 
-for (let i = 0; i < alunos.length; i++) {
-    conosole.log("Aluno: ", alunos[i])
+function multiplicacao(a, b) {
+    return a * b;
+}
+
+function divisao(a, b) {
+    return a / b;
+}
+
+// Escolhendo a operação
+let opcao = Number(prompt("Escolha uma opção: "));
+
+// Perguntando os valores
+let numero1 = Number(prompt("Digite o primeiro valor: "));
+let numero2 = Number(prompt("Digite o segundo valor: "));
+
+// Verificando a opção escolhida
+switch (opcao) {
+    case 1:
+        console.log("Resultado:", soma(numero1, numero2));
+        break;
+
+    case 2:
+        console.log("Resultado:", subtracao(numero1, numero2));
+        break;
+
+    case 3:
+        console.log("Resultado:", multiplicacao(numero1, numero2));
+        break;
+
+    case 4:
+        console.log("Resultado:", divisao(numero1, numero2));
+        break;
+
+    default:
+        console.log("Opção inválida!");
+        break;
 }
