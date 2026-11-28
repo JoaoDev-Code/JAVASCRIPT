@@ -1,3 +1,4 @@
+
 const produtos = [
     {
         nome: "Notebook Dell Inspiron",
@@ -22,7 +23,14 @@ const produtos = [
 const lista = document.querySelector("#lista-produtos");
 const form = document.querySelector("#form-produto");
 
-// Criando uma função para mostrar os produtos
+const nome = document.querySelector("#nomeProduto");
+const categoria = document.querySelector("#categoria");
+const descricao = document.querySelector("#descricao");
+const preco = document.querySelector("#preco");
+
+const busca = document.querySelector("#busca");
+
+// Função para mostrar os produtos
 
 function mostrarProdutos(produtos) {
 
@@ -50,12 +58,27 @@ function mostrarProdutos(produtos) {
     }
 }
 
-const nome = document.querySelector("#nomeProduto");
-const categoria = document.querySelector("#categoria");
-const descricao = document.querySelector("#descricao");
-const preco = document.querySelector("#preco");
+// Filtrador de produtos
 
-form.addEventListener('submit', function(event){
+busca.addEventListener("input", function() {
+
+    const pesquisa = busca.value.toLowerCase();
+
+    const produtosFiltrados = produtos.filter(function(produto) {
+
+        return produto.nome.toLowerCase().includes(pesquisa) ||
+               produto.categoria.toLowerCase().includes(pesquisa) ||
+               produto.descricao.toLowerCase().includes(pesquisa);
+
+    });
+
+    mostrarProdutos(produtosFiltrados);
+
+});
+
+// Cadastro de novos produtos
+
+form.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
@@ -68,12 +91,20 @@ form.addEventListener('submit', function(event){
 
     produtos.push(novoProduto);
 
-    mostrarProdutos(produtos);
+    mostrarProdutos(produtos.filter(function(produto) {
+
+        const pesquisa = busca.value.toLowerCase();
+
+        return produto.nome.toLowerCase().includes(pesquisa) ||
+               produto.categoria.toLowerCase().includes(pesquisa) ||
+               produto.descricao.toLowerCase().includes(pesquisa);
+
+    }));
 
     form.reset();
 
 });
 
-// Chama a função para mostrar os produtos
+// Mostrar produtos inicialmente
 
 mostrarProdutos(produtos);
