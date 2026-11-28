@@ -29,4 +29,3 @@ if (produto) {
 } else {
     console.log("Opção inválida!");
 }
-

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  
+<form id="form-produto">
+  <h2>Cadastrar produto</h2>
+  <p>Preencha as informações do produto.</p>
+
+  <div class="campo">
+    <label for="nome">Nome do produto</label>
+    <input type="text" id="nomeProduto" placeholder="Ex: Notebook Dell Inspiron">
+  </div>
+
+  <div class="campo">
+    <label for="categoria">Categoria</label>
+    <select id="categoria">
+      <option value="">Selecione uma categoria</option>
+      <option value="Eletrônicos">Eletrônicos</option>
+      <option value="Periféricos">Periféricos</option>
+      <option value="Acessórios">Acessórios</option>
+    </select>
+  </div>
+
+  <div class="campo">
+    <label for="descricao">Descrição</label>
+    <textarea id="descricao" placeholder="Descreva brevemente o produto"></textarea>
+  </div>
+
+  <div class="campo">
+    <label for="preco">Preço (R$)</label>
+    <input type="number" id="preco" placeholder="Ex: 3500">
+  </div>
+
+  <button type="submit">Cadastrar produto</button>
+</form>
+
+<main class="container">
+    <h1>Catálogo de Produtos</h1>
+   
+
+    <input type="text" id="busca" placeholder="Buscar produto...">
+
+    <ul id="lista-produtos">
+    </ul>
+
+    <h1>Produto nao encontrado</h1>
+</main>
+    <script src="script.js"></script>
+</body>
+</html>
